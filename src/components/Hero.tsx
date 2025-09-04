@@ -10,7 +10,7 @@ const Hero = () => {
                     gratitude for MHDHH and Tokkis. Thank you 🐰💙</p>
                 <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'> This is a board for tokkis to leave encouraging
                     messages to the girls! Please make sure to follow
-                    the rules when posting. </p>
+                    the <a href="/rules">rules</a> when posting. </p>
                 <p className='pt-2 pb-4 text-gray-500 text-xs w-5/6 mx-auto'>Made with 💙 by <a href="https://x.com/sun4nce">@sun4nce</a></p>
             </div>
             <div className="flex justify-center pb-5">
