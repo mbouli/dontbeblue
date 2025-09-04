@@ -11,7 +11,7 @@ const Hero = () => {
                 <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'> This is a board for tokkis to leave encouraging
                     messages to the girls! Please make sure to follow
                     the rules when posting. </p>
-                <p className='pt-2 pb-4 text-gray-500 text-xs w-5/6 mx-auto'>This project is open sourced!</p>
+                <p className='pt-2 pb-4 text-gray-500 text-xs w-5/6 mx-auto'>Made with 💙 by <a href="https://x.com/sun4nce">@sun4nce</a></p>
             </div>
             <div className="flex justify-center pb-5">
                 <AuthButton />

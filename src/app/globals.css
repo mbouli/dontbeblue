@@ -40,3 +40,8 @@ body {
   background: #95E443;
   background: linear-gradient(0deg, rgba(149, 228, 67, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
+
+a {
+  color: #75b233;
+  text-decoration: underline;
+}
