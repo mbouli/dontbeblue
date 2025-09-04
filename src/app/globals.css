@@ -45,3 +45,7 @@ a {
   color: #75b233;
   text-decoration: underline;
 }
+
+.shadow {
+  filter: drop-shadow(1px 1px 0px #000000);
+}
