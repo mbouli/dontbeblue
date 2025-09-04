@@ -11,15 +11,11 @@ const MessageCard = ({ username, postDate, messageContent, numLikes }: { usernam
                 <p className=' text-black text-sm'>{messageContent}</p>
             </div>
             <div className='pt-2 pb-3 w-11/12 mx-auto flex items-center gap-2'>
-                <p className='bg-white rounded-xl px-2 py-1'>👍</p>
+                <p className='bg-white text-sm rounded-xl px-1 py-1 text-black'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-thumbs-up-icon lucide-thumbs-up"><path d="M7 10v12" /><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" /></svg>
+                </p>
                 <p className='text-black text-xs'>{numLikes} likes</p>
             </div>
-            {/* <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'> This is a passion project I made out of my love and
-                gratitude for MHDHH and Tokkis. Thank you 🐰💙</p>
-            <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'> This is a board for tokkis to leave encouraging
-                messages to the girls! Please make sure to follow
-                the rules when posting. </p>
-            <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'>This project is open sourced!</p> */}
         </div>
     )
 }

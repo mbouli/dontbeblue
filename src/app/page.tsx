@@ -4,7 +4,7 @@ import Landing from "@/components/Landing";
 import Messages from "@/components/Messages";
 import Image from "next/image";
 
-const landing = true;
+const landing = false;
 
 export default function Home() {
   if (landing) {
