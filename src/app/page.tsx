@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Messages from "@/components/Messages";
 import Image from "next/image";
@@ -9,6 +10,7 @@ export default function Home() {
         <div className="h-full w-full overflow-y-auto flex flex-col items-center">
           <Hero />
           <Messages />
+          <Footer />
         </div>
       </div>
     </div >
