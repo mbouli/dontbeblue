@@ -49,3 +49,8 @@ a {
 .ds {
   filter: drop-shadow(1px 1px 0px #000000);
 }
+
+.no-underline {
+  text-decoration: none !important;
+  color: black !important;
+}
