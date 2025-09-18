@@ -6,10 +6,18 @@ import { createClient } from '@/lib/supabase/server'
 const Messages = async () => {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
+  const { data: messages } = await supabase
+    .from('messages')
+    .select('id, author_username, content, likes_count, created_at')
+    .order('created_at', { ascending: false })
+    .limit(50)
+  const { count: totalMessages } = await supabase
+    .from('messages')
+    .select('id', { count: 'exact', head: true })
   return (
     <>
       <div className='w-6/7 flex justify-between items-center pt-4'>
-        <h1 className='text-black font-bold text-2xl'>Messages (5782)</h1>
+        <h1 className='text-black font-bold text-2xl'>Messages ({totalMessages ?? 0})</h1>
         {user ? (
           <div className='justify-center flex gap-2'>
             <a href="/auth/onboarding" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
@@ -23,46 +31,19 @@ const Messages = async () => {
           <AuthButton />
         )}
       </div>
-      <MessageCard
-        username='sun4nce'
-        postDate='2025.09.05 00:07:22'
-        messageContent='hi minji hanni dani haerin hyein!!! i hope you guys know
-                    how much bunnies love u and we will always wait for you!! i can’t wait for you to comeback stronger than ever! bunnies miss
-                    you lots and lots!! and we cannot wait for you to be back.'
-        numLikes={722}
-      />
-      <MessageCard
-        username='lovejeans'
-        postDate='2025.09.04 07:22:22'
-        messageContent='¡hola newjeans! ¡se extraño a ustedes mucho! i cannot wait for your comeback <3'
-        numLikes={227}
-      />
-      <MessageCard
-        username='NWJNS_LOVE'
-        postDate='2025.09.03 22:07:22'
-        messageContent='STAN NEWJEANS!'
-        numLikes={22722}
-      />
-      <MessageCard
-        username='sun4nce'
-        postDate='2025.09.03 00:07:22'
-        messageContent='hi minji hanni dani haerin hyein!!! i hope you guys know
-                    how much bunnies love u and we will always wait for you!! i can’t wait for you to comeback stronger than ever! bunnies miss
-                    you lots and lots!! and we cannot wait for you to be back.'
-        numLikes={722}
-      />
-      <MessageCard
-        username='lovejeans'
-        postDate='2025.09.02 07:22:22'
-        messageContent='¡hola newjeans! ¡se extraño a ustedes mucho! i cannot wait for your comeback <3'
-        numLikes={227}
-      />
-      <MessageCard
-        username='NWJNS_LOVE'
-        postDate='2025.09.01 22:07:22'
-        messageContent='STAN NEWJEANS!'
-        numLikes={22722}
-      />
+      {messages?.map((m) => {
+        const iso = new Date(m.created_at).toISOString().slice(0, 19).replace('T', ' ')
+        const postDate = iso.slice(0, 10).replace(/-/g, '.') + iso.slice(10)
+        return (
+          <MessageCard
+            key={m.id}
+            username={m.author_username}
+            postDate={postDate}
+            messageContent={m.content}
+            numLikes={m.likes_count}
+          />
+        )
+      })}
     </>
   )
 }
