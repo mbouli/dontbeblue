@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { deleteMessage } from "@/app/(root)/admin/deleteMessage";
+import NotFound from "@/app/not-found";
 
 export default async function AdminPage() {
     const supabase = await createClient();
@@ -8,7 +9,11 @@ export default async function AdminPage() {
 
     // Check if user is admin
     if (!user || user.id !== process.env.ADMIN_UUID) {
-        redirect("/");
+        return (
+            <>
+                <NotFound />
+            </>
+        )
     }
 
     // Get all messages with author info
