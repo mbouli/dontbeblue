@@ -2,12 +2,22 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { filterContent, sanitizeContent } from "@/lib/filterContent";
 
 export async function postMessage(formData: FormData) {
-    const content = String(formData.get("content") ?? "").trim();
+    const rawContent = String(formData.get("content") ?? "").trim();
 
-    if (!content) {
-        redirect("/?error=empty_message");
+    if (!rawContent) {
+        redirect("/");
+    }
+
+    // Sanitize content
+    const content = sanitizeContent(rawContent);
+
+    // Filter content for inappropriate language
+    const filterResult = filterContent(content);
+    if (!filterResult.isClean) {
+        redirect(`/tos`);
     }
 
     const supabase = await createClient();

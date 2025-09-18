@@ -23,12 +23,13 @@ export default async function AdminPage() {
                 <div className="h-full w-full overflow-y-auto flex flex-col items-center">
                     <div className="w-6/7 bg-white mt-5 border-1 border-black rounded-xl ds">
                         <div className="w-11/12 mx-auto py-6">
-                            <h1 className="text-black font-bold text-xl mb-4">Admin Panel</h1>
-                            <p className="text-gray-500 text-sm mb-6">Manage messages</p>
+                            <h1 className="text-black font-bold text-xl mb-2 text-center">Admin Panel</h1>
+                            <p className="text-gray-500 text-sm text-center">Manage messages</p>
+                            <a className="mb-6 text-center" href="/">Home</a>
 
                             <div className="space-y-4">
                                 {messages?.map((message) => (
-                                    <div key={message.id} className="bg-gray-50 border-1 border-gray-300 rounded-lg p-4">
+                                    <div key={message.id} className="msg-bg border-1 border-black rounded-lg p-4">
                                         <div className="flex justify-between items-start mb-2">
                                             <div>
                                                 <p className="text-sm font-semibold text-black">@{message.author_username}</p>
