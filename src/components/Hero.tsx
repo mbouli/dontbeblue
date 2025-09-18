@@ -13,9 +13,6 @@ const Hero = () => {
                     the <a href="/rules">rules</a> when posting. </p>
                 <p className='pt-2 pb-4 text-gray-500 text-xs w-5/6 mx-auto'>Made with 💙 by <a href="https://x.com/sun4nce">@sun4nce</a></p>
             </div>
-            <div className="flex justify-center pb-5">
-                <AuthButton />
-            </div>
         </div>
     )
 }

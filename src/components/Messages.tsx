@@ -1,12 +1,27 @@
 import React from 'react'
 import MessageCard from './MessageCard'
+import AuthButton from './AuthButton'
+import { createClient } from '@/lib/supabase/server'
 
-const Messages = () => {
+const Messages = async () => {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
   return (
     <>
       <div className='w-6/7 flex justify-between items-center pt-4'>
         <h1 className='text-black font-bold text-2xl'>Messages (5782)</h1>
-        <p className='bg-white border-1 border-black rounded-xl px-2 py-1'>🎲</p>
+        {user ? (
+          <div className='justify-center flex gap-2'>
+            <a href="/auth/onboarding" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
+              Settings
+            </a>
+            <a href="/auth/onboarding" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
+              Post
+            </a>
+          </div>
+        ) : (
+          <AuthButton />
+        )}
       </div>
       <MessageCard
         username='sun4nce'
