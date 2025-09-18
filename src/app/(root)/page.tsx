@@ -1,7 +1,7 @@
 import Footer from "@/components/Sections/Footer";
 import Hero from "@/components/Sections/Hero";
 import Landing from "@/components/Sections/Landing";
-import Messages from "@/components/Messages";
+import Messages from "@/components/Sections/Messages";
 import Image from "next/image";
 
 const landing = process.env.PRODUCTION_STATUS;
