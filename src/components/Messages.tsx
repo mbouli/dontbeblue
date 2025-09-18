@@ -11,6 +11,16 @@ const Messages = async () => {
     .select('id, author_username, content, likes_count, created_at')
     .order('created_at', { ascending: false })
     .limit(50)
+  // Preload whether the current user liked each message
+  let likedIds = new Set<string>()
+  if (user && messages && messages.length) {
+    const { data: liked } = await supabase
+      .from('message_likes')
+      .select('message_id')
+      .eq('user_id', user.id)
+      .in('message_id', messages.map(m => m.id))
+    liked?.forEach((r) => likedIds.add(r.message_id))
+  }
   const { count: totalMessages } = await supabase
     .from('messages')
     .select('id', { count: 'exact', head: true })
@@ -37,10 +47,12 @@ const Messages = async () => {
         return (
           <MessageCard
             key={m.id}
+            id={m.id}
             username={m.author_username}
             postDate={postDate}
             messageContent={m.content}
             numLikes={m.likes_count}
+            initiallyLiked={likedIds.has(m.id)}
           />
         )
       })}
