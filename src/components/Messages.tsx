@@ -24,15 +24,19 @@ const Messages = async () => {
   const { count: totalMessages } = await supabase
     .from('messages')
     .select('id', { count: 'exact', head: true })
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut()
+  }
   return (
     <>
       <div className='w-6/7 flex justify-between items-center pt-4'>
         <h1 className='text-black font-bold text-2xl'>Messages ({totalMessages ?? 0})</h1>
         {user ? (
           <div className='justify-center flex gap-2'>
-            <a href="/auth/onboarding" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
-              Settings
-            </a>
+            <button onClick={handleSignOut} className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
+              Log out
+            </button>
             <a href="/auth/onboarding" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
               Post
             </a>
