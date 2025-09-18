@@ -1,2 +1,2 @@
 # dontbeblue.club
-A board for Tokkis to leave encouraging messages for MHDHH 🐰💙!
+A message board for fans of K-pop girl group NewJeans (Tokkis) to leave encouraging messages 🐰💙!
