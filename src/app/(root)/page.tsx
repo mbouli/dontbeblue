@@ -4,10 +4,10 @@ import Landing from "@/components/Landing";
 import Messages from "@/components/Messages";
 import Image from "next/image";
 
-const landing = false;
+const landing = process.env.PRODUCTION_STATUS;
 
 export default function Home() {
-    if (landing) {
+    if (landing == "FALSE") {
         return (
             <>
                 <Landing />
