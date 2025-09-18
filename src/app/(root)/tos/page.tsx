@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import Landing from "@/components/Landing";
+import Footer from "@/components/Sections/Footer";
+import Hero from "@/components/Sections/Hero";
+import Landing from "@/components/Sections/Landing";
 import Messages from "@/components/Messages";
 import Image from "next/image";
 
@@ -10,14 +10,14 @@ export default function TermsOfService() {
         <div className="backdrop flex items-center justify-center h-screen overflow-hidden">
             <div className="bg h-[100vh] w-[450px] flex flex-col items-center justify-center overflow-hidden">
                 <div className="h-full w-full overflow-y-auto flex flex-col items-center text-center text-black">
-                    <div className='w-6/7 bg-white border-1 border-black rounded-xl ds mt-5'>
+                    <div className='w-6/7 bg-white border-1 border-black rounded-xl ds mt-5 mb-5'>
                         <div className="mt-5">
                             <a href="/" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
                                 Home
                             </a>
                             <h1 className="text-2xl font-bold mt-3">📜 Terms of Service</h1>
                             <p className="text-md"><span className='bold'>Effective Date:</span> October 1, 2025</p>
-                            <p className="text-xs pt-5">Welcome to dontbeblue.club (“we,” “our,” “us”). By using our website and message board (the “Service”), you agree to these Terms of Service. Please read them carefully.</p>
+                            <p className="text-xs pt-5 w-5/6 mx-auto text-left">Welcome to dontbeblue.club (“we,” “our,” “us”). By using our website and message board (the “Service”), you agree to these Terms of Service. Please read them carefully.</p>
                         </div>
                         <div className="pt-5 w-5/6 mx-auto text-left">
                             <h1 className="text-md font-bold">1. Eligibility</h1>
@@ -70,7 +70,7 @@ export default function TermsOfService() {
                             <h1 className="text-md font-bold">7. Limitation of Liability</h1>
                             <p className="text-xs">To the maximum extent permitted by law, we are not liable for damages arising from your use of the Service.</p>
                         </div>
-                        <div className="pt-5 w-5/6 mx-auto text-left pb-3.5">
+                        <div className="pt-5 w-5/6 mx-auto text-left pb-5">
                             <h1 className="text-md font-bold">8. Governing Law</h1>
                             <p className="text-xs">These Terms are governed by the laws of the <span className="font-bold">United States</span>.</p>
                         </div>

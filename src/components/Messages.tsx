@@ -1,7 +1,7 @@
 import React from 'react'
-import MessageCard from './MessageCard'
-import AuthButton from './AuthButton'
-import SignOutButton from './SignOutButton'
+import MessageCard from './Messages/MessageCard'
+import AuthButton from './Auth/AuthButton'
+import SignOutButton from './Auth/SignOutButton'
 import { createClient } from '@/lib/supabase/server'
 
 const Messages = async () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import AuthButton from './AuthButton';
+import AuthButton from '../Auth/AuthButton';
 
 const Hero = () => {
     return (
