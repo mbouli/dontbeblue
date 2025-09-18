@@ -41,6 +41,16 @@ body {
   background: linear-gradient(0deg, rgba(149, 228, 67, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
+.msgc-bg {
+  background: #a781f8;
+  background: linear-gradient(0deg, rgba(167, 129, 248, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.msgb-bg {
+  background: #ffff00;
+  background: linear-gradient(0deg, rgba(255, 255, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
 a {
   color: #75b233;
   text-decoration: underline;
