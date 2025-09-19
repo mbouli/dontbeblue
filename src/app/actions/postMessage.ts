@@ -11,10 +11,8 @@ export async function postMessage(formData: FormData) {
         redirect("/");
     }
 
-    // Sanitize content
     const content = sanitizeContent(rawContent);
 
-    // Filter content for inappropriate language
     const filterResult = filterContent(content);
     if (!filterResult.isClean) {
         redirect(`/tos`);
@@ -27,7 +25,6 @@ export async function postMessage(formData: FormData) {
         redirect("/");
     }
 
-    // Get user's account info for author_username
     const { data: account } = await supabase
         .from("accounts")
         .select("username")
@@ -36,6 +33,22 @@ export async function postMessage(formData: FormData) {
 
     if (!account) {
         redirect("/auth/onboarding");
+    }
+
+    // Check if user has posted in the last hour
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    const { data: recentPosts } = await supabase
+        .from("messages")
+        .select("created_at")
+        .eq("author_id", user.id)
+        .gte("created_at", oneHourAgo)
+        .order("created_at", { ascending: false })
+        .limit(1);
+
+    if (recentPosts && recentPosts.length > 0) {
+        const lastPostTime = new Date(recentPosts[0].created_at);
+        const timeUntilNextPost = Math.ceil((lastPostTime.getTime() + 60 * 60 * 1000 - Date.now()) / (1000 * 60));
+        redirect(`/?error=${encodeURIComponent(`Please wait ${timeUntilNextPost} minutes before posting again`)}`);
     }
 
     const { error } = await supabase.from("messages").insert({
@@ -49,5 +62,4 @@ export async function postMessage(formData: FormData) {
     }
 
     revalidatePath("/");
-    // Don't redirect - just revalidate to refresh data
 }

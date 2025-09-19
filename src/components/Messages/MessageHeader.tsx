@@ -1,6 +1,7 @@
 'use client';
 import { User } from '@supabase/supabase-js'
-import { useState, useTransition } from 'react'
+import { useState, useTransition, useEffect } from 'react'
+import { createClient } from '@/lib/supabase/client'
 
 import AuthButton from '../Auth/AuthButton'
 import SignOutButton from '../Auth/SignOutButton'
@@ -9,6 +10,39 @@ import { postMessage } from '@/app/actions/postMessage'
 const PostForm = ({ user, totalMessages }: { user: User | null; totalMessages: number | null }) => {
   const [postModal, setPostModal] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const [canPost, setCanPost] = useState(true);
+  const [timeUntilNextPost, setTimeUntilNextPost] = useState(0);
+
+  // Check if user can post (not within last hour)
+  useEffect(() => {
+    if (!user) return;
+
+    const checkPostCooldown = async () => {
+      const supabase = createClient();
+      const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+
+      const { data: recentPosts } = await supabase
+        .from("messages")
+        .select("created_at")
+        .eq("author_id", user.id)
+        .gte("created_at", oneHourAgo)
+        .order("created_at", { ascending: false })
+        .limit(1);
+
+      if (recentPosts && recentPosts.length > 0) {
+        const lastPostTime = new Date(recentPosts[0].created_at);
+        const timeUntilNext = Math.ceil((lastPostTime.getTime() + 60 * 60 * 1000 - Date.now()) / (1000 * 60));
+        setTimeUntilNextPost(timeUntilNext);
+        setCanPost(false);
+      } else {
+        setCanPost(true);
+      }
+    };
+
+    checkPostCooldown();
+    const interval = setInterval(checkPostCooldown, 60000); // Check every minute
+    return () => clearInterval(interval);
+  }, [user]);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
@@ -24,9 +58,15 @@ const PostForm = ({ user, totalMessages }: { user: User | null; totalMessages: n
         {user ? (
           <div className='justify-center flex gap-2'>
             <SignOutButton />
-            <button onClick={() => setPostModal(!postModal)} className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
-              {!postModal ? 'Post' : 'Close'}
-            </button>
+            {canPost ? (
+              <button onClick={() => setPostModal(!postModal)} className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
+                {!postModal ? 'Post' : 'Close'}
+              </button>
+            ) : (
+              <button disabled className='msg-bg py-2 px-3 text-gray-500 border-1 border-gray-400 text-sm font-semibold rounded-xl ds cursor-not-allowed no-underline opacity-50'>
+                Wait {timeUntilNextPost}m
+              </button>
+            )}
           </div>
         ) : (
           <AuthButton />
