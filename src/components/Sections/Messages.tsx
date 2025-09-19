@@ -1,6 +1,7 @@
 import MessageCard from '../Messages/MessageCard'
 import { createClient } from '@/lib/supabase/server'
 import MessageHeader from '../Messages/MessageHeader'
+import PinnedMessage from '../Messages/PinnedMessage'
 
 const Messages = async () => {
   const supabase = await createClient()
@@ -26,6 +27,11 @@ const Messages = async () => {
   return (
     <>
       <MessageHeader user={user} totalMessages={totalMessages} />
+      <PinnedMessage
+        username='sun4nce'
+        postDate='2025.09.19 07:22:00'
+        messageContent='Hi everyone! Welcome to dontbeblue.club. This is the first message! Make sure to follow the rules laid out in the terms! NEWJEANS NEVER DIE'
+      />
       {messages?.map((m) => {
         const iso = new Date(m.created_at).toISOString().slice(0, 19).replace('T', ' ')
         const postDate = iso.slice(0, 10).replace(/-/g, '.') + iso.slice(10)
