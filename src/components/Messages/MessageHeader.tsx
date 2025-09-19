@@ -63,7 +63,7 @@ const PostForm = ({ user, totalMessages }: { user: User | null; totalMessages: n
                 {!postModal ? 'Post' : 'Close'}
               </button>
             ) : (
-              <button disabled className='msg-bg py-2 px-3 text-gray-500 border-1 border-gray-400 text-sm font-semibold rounded-xl ds cursor-not-allowed no-underline opacity-50'>
+              <button disabled className='msgb-bg py-2 px-3 text-gray-500 border-1 border-black text-sm font-semibold rounded-xl ds cursor-not-allowed no-underline'>
                 Wait {timeUntilNextPost}m
               </button>
             )}
