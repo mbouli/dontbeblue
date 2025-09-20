@@ -41,7 +41,7 @@ export default async function OnboardingPage() {
                                 <button type="submit" className='msg-bg py-3 px-4 text-black border-1 border-black font-semibold rounded-4xl ds cursor-pointer no-underline'>
                                     Create account
                                 </button>
-                                <p className='pt-5 text-gray-500 text-xs w-5/6 mx-auto'>When you create an account, you agree to our <a href="/tos">terms</a></p>
+                                <p className='pt-5 text-gray-500 text-xs w-5/6 mx-auto'>When you create an account, you agree to our <a href="/tos">terms of service</a> and <a href="/privacy">privacy policy</a>.</p>
                             </div>
                         </form>
                     </div>
