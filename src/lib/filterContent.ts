@@ -1,6 +1,6 @@
 import profanity from 'leo-profanity';
 
-profanity.loadDictionary();
+profanity.loadDictionary("en");
 
 profanity.add(['ador', 'hybe', 'min hee jin', 'mhj', 'scandal', 'lawsuit', 'traitor', 'snake', 'sellout', 'fraud', 'corrupt', 'backstabber', 'steal', 'copy', 'copycat', 'thief', 'stolen', 'plagiarism', 'sabotage', 'hate', 'disband', 'flop', 'irrelevant']);
 
