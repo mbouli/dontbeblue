@@ -51,6 +51,10 @@ export async function postMessage(formData: FormData) {
         redirect(`/?error=${encodeURIComponent(`Please wait ${timeUntilNextPost} minutes before posting again`)}`);
     }
 
+    if (content.length > 200) {
+        redirect(`/?error=${encodeURIComponent(`Posts must be shorter than 200 characters!`)}`);
+    }
+
     const { error } = await supabase.from("messages").insert({
         author_id: user.id,
         author_username: account.username,

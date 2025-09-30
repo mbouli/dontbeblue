@@ -29,7 +29,7 @@ const Messages = async () => {
       <PinnedMessage
         username='sun4nce'
         postDate='2025.09.19 07:22:00'
-        messageContent='Hi everyone! Welcome to dontbeblue.club. This is the first message! You may sign in using your Google account, however, more ways are coming soon! Make sure to follow the rules laid out in the terms! NEWJEANS NEVER DIE'
+        messageContent='Hi everyone! Welcome to dontbeblue.club. This is the first message! You may sign in using your Google account, however, more ways are coming soon! Make sure to follow the rules stated in the terms! NEWJEANS NEVER DIE'
       />
       <MessageHeader user={user} totalMessages={totalMessages} />
       {messages?.map((m) => {

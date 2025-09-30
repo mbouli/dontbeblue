@@ -13,7 +13,6 @@ const PostForm = ({ user, totalMessages }: { user: User | null; totalMessages: n
   const [canPost, setCanPost] = useState(true);
   const [timeUntilNextPost, setTimeUntilNextPost] = useState(0);
 
-  // Check if user can post (not within last hour)
   useEffect(() => {
     if (!user) return;
 
@@ -40,14 +39,14 @@ const PostForm = ({ user, totalMessages }: { user: User | null; totalMessages: n
     };
 
     checkPostCooldown();
-    const interval = setInterval(checkPostCooldown, 60000); // Check every minute
+    const interval = setInterval(checkPostCooldown, 60000);
     return () => clearInterval(interval);
   }, [user]);
 
   const handleSubmit = (formData: FormData) => {
     startTransition(async () => {
       await postMessage(formData);
-      setPostModal(false); // Close modal after posting
+      setPostModal(false);
     });
   };
 
