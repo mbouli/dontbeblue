@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.57.2",
+    "badwords-ko": "^1.0.4",
     "clsx": "^2.1.1",
     "leo-profanity": "^1.8.0",
     "next": "15.5.2",

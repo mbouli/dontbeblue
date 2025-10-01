@@ -15,7 +15,7 @@ export async function postMessage(formData: FormData) {
 
     const filterResult = filterContent(content);
     if (!filterResult.isClean) {
-        redirect(`/tos`);
+        redirect(`/warning`);
     }
 
     const supabase = await createClient();

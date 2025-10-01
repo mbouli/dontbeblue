@@ -1,4 +1,7 @@
 import profanity from 'leo-profanity';
+import Filter from 'badwords-ko';
+
+const filter = new Filter();
 
 profanity.loadDictionary("en");
 
@@ -23,6 +26,13 @@ export function filterContent(content: string): {
 
     // Check for banned patterns
     if (profanity.check(content)) {
+        return {
+            isClean: false,
+            reason: `Message contains inappropriate language`
+        };
+    }
+
+    if (filter.isProfane(content)) {
         return {
             isClean: false,
             reason: `Message contains inappropriate language`
