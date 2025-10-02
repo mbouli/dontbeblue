@@ -1,10 +1,3 @@
-import Footer from "@/components/Sections/Footer";
-import Hero from "@/components/Sections/Hero";
-import Landing from "@/components/Sections/Landing";
-import Messages from "@/components/Sections/Messages";
-import Image from "next/image";
-
-
 export default function PrivacyPolicy() {
     return (
         <div className="backdrop flex items-center justify-center h-screen overflow-hidden">

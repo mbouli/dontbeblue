@@ -1,4 +1,3 @@
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { deleteMessage } from "@/app/(root)/admin/deleteMessage";
 import NotFound from "@/app/not-found";

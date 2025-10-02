@@ -1,6 +1,3 @@
-import React from 'react'
-import AuthButton from '../Auth/AuthButton';
-
 const Hero = () => {
     return (
         <div className='w-6/7 bg-white mt-5 border-1 border-black rounded-xl ds'>
