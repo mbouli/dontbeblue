@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
                             <ul className="text-xs list-disc pl-5">
                                 <li>Your email address (for authentication)</li>
                                 <li>Your Google account ID (for login verification).</li>
-                                <li>Supabase stores your Profile Picture for authentication.</li>
+                                <li>Supabase stores your profile picture and full name automatically during authentication. However, we do not use it for anything.</li>
                             </ul>
                             <p className="text-sm">We do not collect passwords. Authentication is handled securely via Google.</p>
                         </div>

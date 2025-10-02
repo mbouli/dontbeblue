@@ -17,7 +17,7 @@ export default function TermsOfService() {
                             </a>
                             <h1 className="text-2xl font-bold mt-3">📜 Terms of Service</h1>
                             <p className="text-md"><span className='bold'>Effective Date:</span> October 1, 2025</p>
-                            <p className="text-xs pt-5 w-5/6 mx-auto text-left">Welcome to dontbeblue.club (“we,” “our,” “us”). By using our website and message board (the “Service”), you agree to these Terms of Service. Please read them carefully.</p>
+                            <p className="text-xs pt-5 w-5/6 mx-auto text-left">Welcome to dontbeblue.club (“we,” “our,” “us”). By using our website and message board (the “Service”), you agree to these Terms of Service and <a href="/privacy">Privacy Policy</a>. Please read them carefully.</p>
                         </div>
                         <div className="pt-5 w-5/6 mx-auto text-left">
                             <h1 className="text-md font-bold">1. Eligibility</h1>
