@@ -11,7 +11,7 @@ const Messages = async () => {
     .select('id, author_username, content, likes_count, created_at')
     .order('created_at', { ascending: false })
     .limit(50)
-  let likedIds = new Set<string>()
+  const likedIds = new Set<string>()
   if (user && messages && messages.length) {
     const { data: liked } = await supabase
       .from('message_likes')

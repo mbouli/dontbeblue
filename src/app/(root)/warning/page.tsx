@@ -1,16 +1,6 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 
 export default async function OnboardingPage() {
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    if (!user) {
-        redirect("/");
-    }
-
-    const email = user.email ?? "";
-
     return (
         <div className="backdrop flex items-center justify-center h-screen overflow-hidden">
             <div className="bg h-[100vh] w-[450px] flex flex-col items-center justify-center overflow-hidden">
@@ -20,9 +10,9 @@ export default async function OnboardingPage() {
                             <h1 className='text-red-500 font-bold text-xl'>Warning!</h1>
                             <p className='pt-2 text-gray-500 text-xs w-5/6 mx-auto'>You may have attempted to post a message that was NOT appropriate. Please be kind 🐰💙🩷💛💚💜</p>
                             <br />
-                            <a href="/" className='msg-bg py-3 px-4 text-black border-1 border-black font-semibold rounded-4xl ds cursor-pointer no-underline'>
+                            <Link href="/" className='msg-bg py-3 px-4 text-black border-1 border-black font-semibold rounded-4xl ds cursor-pointer no-underline'>
                                 Home
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ import Messages from "@/components/Sections/Messages";
 
 const landing = process.env.PRODUCTION_STATUS;
 
-export default function Home({ searchParams }: { searchParams: { error?: string } }) {
+export default function Home() {
     if (landing == "FALSE") {
         return (
             <>

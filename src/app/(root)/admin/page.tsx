@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { deleteMessage } from "@/app/(root)/admin/deleteMessage";
 import NotFound from "@/app/not-found";
+import Link from "next/link";
 
 export default async function AdminPage() {
     const supabase = await createClient();
@@ -29,7 +30,7 @@ export default async function AdminPage() {
                         <div className="w-11/12 mx-auto py-6">
                             <h1 className="text-black font-bold text-xl mb-2 text-center">Admin Panel</h1>
                             <p className="text-gray-500 text-sm text-center">Manage messages</p>
-                            <a className="mb-6 text-center" href="/">Home</a>
+                            <Link className="mb-6 text-center" href="/">Home</Link>
 
                             <div className="space-y-4">
                                 {messages?.map((message) => (

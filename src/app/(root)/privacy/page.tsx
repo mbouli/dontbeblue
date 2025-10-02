@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PrivacyPolicy() {
     return (
         <div className="backdrop flex items-center justify-center h-screen overflow-hidden">
@@ -5,9 +7,9 @@ export default function PrivacyPolicy() {
                 <div className="h-full w-full overflow-y-auto flex flex-col items-center text-center text-black">
                     <div className='w-6/7 bg-white border-1 border-black rounded-xl ds mt-5 mb-5'>
                         <div className="mt-5">
-                            <a href="/" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
+                            <Link href="/" className='msg-bg py-2 px-3 text-black border-1 border-black text-sm font-semibold rounded-xl ds cursor-pointer no-underline'>
                                 Home
-                            </a>
+                            </Link>
                             <h1 className="text-2xl font-bold mt-3">🔒 Privacy Policy</h1>
                             <p className="text-md"><span className='bold'>Effective Date:</span> October 1, 2025</p>
                             <p className="text-xs pt-5 w-5/6 mx-auto text-left">Your privacy matters to us. This Privacy Policy explains what information we collect, why we collect it, and how it&apos;s used.</p>
