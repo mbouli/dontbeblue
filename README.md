@@ -14,6 +14,7 @@ The reason dontbeblue exists is because NewJeans is currently in a legal battle 
 | -------- | ------- |
 | Add sorting by most recent / top liked messages |  ⚠️  |
 | Add live updating to like counts so users don't need to refresh as often |  ❓  |
+| Allow accounts to be created with Kakao and Twitter |  ❓  |
 | Limit users to one post per hour |  ✅  |
 | Implement posting messages |  ✅  |
 | Add content filtering to check before posting  |  ✅  |
