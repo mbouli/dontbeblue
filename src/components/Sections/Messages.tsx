@@ -26,10 +26,10 @@ const Messages = async () => {
 
   return (
     <>
-      <PinnedMessage
+      {/* <PinnedMessage
         username='ANNOUNCEMENT'
-        messageContent='Hi everyone! Welcome to dontbeblue.club. This is the first message! You may sign in using your Google account, however, more ways are coming soon! Make sure to follow the rules stated in the terms! NEWJEANS NEVER DIE'
-      />
+        messageContent='Hi everyone! Welcome to DontBeBlue. This is the first message! You may sign in using your Google account, however, more ways are coming soon! Make sure to follow the rules stated in the terms! NEWJEANS NEVER DIE'
+      /> */}
       <MessageHeader user={user} totalMessages={totalMessages} />
       {messages?.map((m) => {
         const iso = new Date(m.created_at).toISOString().slice(0, 19).replace('T', ' ')
