@@ -1,5 +1,5 @@
 # dontbeblue.club
-A message board for fans of K-pop girl group NewJeans (Tokkis) to leave encouragement during their tough times trying to separate from their old company 🐰💙!
+A message board for fans of K-pop band NewJeans to leave encouragement during their tough times trying to separate from their old company 🐰💙!
 
 ## Tech Stack
 - **Frontend**: Next.js, Tailwind
